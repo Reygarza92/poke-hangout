@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Game Over</h1>
+        {% if "_" not in guessed_word %}
+            <p>Felicidades! adivinaste el pokemon "{{ word_to_guess }}"</p>
+            <img id="pokemon-img" style="display: none;" src="" width="200" height="200">
+
+        {% else %}
+            <p>Perdiste "{{ word_to_guess }}"</p>
+            <img id="pokemon-img" style="display: none;" src="" width="200" height="200">
+        {% endif %}
+        <br>
+        <a href="/reset">Jugar de nuevo</a>
+    </div>
+</body>
+</html>

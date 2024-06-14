@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman with Poke API</title>
+</head>
+<body>
+    <h1>Hangman!</h1>
+    <p>Guess the name of a Pokemon:</p>
+    <form action="/" method="post">
+        <input type="text" name="guess" placeholder="Guess a letter">
+        <input type="submit" value="Guess">
+        <br>
+        <input type="submit" name="reset" value="Reset Game">
+    </form>
+    <p>Guessed letters: {{ guessed_letters }}</p>
+    <p>Attempts left: {{ attempts }}</p>
+</body>
+</html>

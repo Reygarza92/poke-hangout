@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data['name'] }}</title>
+</head>
+<body>
+    <h1>{{ data['name'] }}</h1>
+    <img src="{{ data['sprites']['front_default'] }}" alt="{{ data['name'] }}">
+    <h2>Características:</h2>
+    <ul>
+        {% for stat in data['stats'] %}
+            <li>{{ stat['stat']['name'] }}: {{ stat['base_stat'] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'PokemonK';
+    src: url('PocketMonk.ttf') format('truetype');
+}
+body {
+    font-family: 'PokemonK', sans-serif;
+}

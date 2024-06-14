@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+</head>
+<body>
+    <h1>Pokédex</h1>
+    <form action="/" method="post">
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% if show_result %}
+        <h2>Información del Pokémon</h2>
+        <h3>{{ pokemon.name }}</h3>
+        <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
+        <p>ID: {{ pokemon.id }}</p>
+        <p>Altura: {{ pokemon.height }}</p>
+        <p>Peso: {{ pokemon.weight }}</p>
+        <p>Tipos: {{ pokemon.types }}</p>
+    {% endif %}
+
+    {% if not_found %}
+        <h2>Pokémon "{{ pokemon_name }}" no encontrado</h2>
+    {% endif %}
+</body>
+</html>
+
+
+

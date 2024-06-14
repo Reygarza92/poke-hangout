@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon: Juego del ahorcado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/fuente.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body style="text-align: center;font-family: 'PokemonK', sans-serif" >
+    <h1><img src="/static/pokemon-logo.png" alt="" srcset="" width="220" height="100"></h1>
+    <!--<p>Intentos restantes: {{ attempts_left }}</p>-->
+    <div style="display: inline-block;">
+        {% if attempts_left < 6 %}
+            <img src="{{ url_for('static', filename='hangman_' + (6 - attempts_left)|string + '.png') }}" alt="Hangman Image" style="display: block; z-index: 12;">
+        {% else %}
+            <img src="{{ url_for('static', filename='hangman_0.png') }}" alt="Hangman Image" style="display: block; z-index: 15;">
+        {% endif %}
+    </div>
+    <p style="margin-top: 20px;">Word: {{ ' '.join(guessed_word) }}</p>
+    <form action="/guess" method="post">
+        <label for="letter">Adivina una letra:</label>
+        <input type="text" name="letter" maxlength="1" required>
+        <div class="button-container">
+        <button class="button-53" role="button" type="submit">Adivina</button>
+        </div>
+    </form>
+  <!--  <form action="/hint" method="post">Botón -->
+    <div class="intento">
+        <form action="/hint" method="post">
+            <input type="submit" value="Pista">
+        </form>
+        
+        {% if pokemon_data %}
+        <h2>Información del Pokémon</h2>
+        <!--  <h3>{{ pokemon_data.name }}</h3>-->
+        <img src="{{ pokemon_data.image }}" alt="{{ pokemon_data.name }}">
+        <p>ID: {{ pokemon_data.id }}</p>
+        <p>Altura: {{ pokemon_data.height }}</p>
+        <p>Peso: {{ pokemon_data.weight }}</p>
+        <p>Tipos: {{ pokemon_data.types }}</p>
+    {% endif %}
+    <br>
+    </div>
+    <a href="/reset" class="Reiniciar">Reiniciar</a>
+</body>
+</html>
+
